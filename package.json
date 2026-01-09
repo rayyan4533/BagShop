@@ -1,7 +1,7 @@
 {
   "name": "bagshopproject",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"# BagShop\"",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +17,14 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.2",
     "multer": "^2.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayyan4533/BagShop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rayyan4533/BagShop/issues"
+  },
+  "homepage": "https://github.com/rayyan4533/BagShop#readme"
 }
