@@ -1,6 +1,8 @@
-const mongoose  = require("mongoose")
+import mongoose from "mongoose"
 
-const owner=mongoose.Schema({
+
+
+const ownerSchema=mongoose.Schema({
 
 
 fullname :{
@@ -18,8 +20,8 @@ products:{
 gstin:String,
 picture:String,
     
-})
+})  
 
 
 
-module.exports=mongoose.model("user",userSchema)
+export default mongoose.model("owner",ownerSchema);

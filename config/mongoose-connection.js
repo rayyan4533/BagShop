@@ -1,11 +1,18 @@
 import mongoose from "mongoose"; 
+import debug from "debug"; 
+import config from "./development.json" with {type:'json'};
 
-mongoose.connect("mongodb://127.0.0.1:27017/WatchEcomm")
+//idhar khudka name likh sakte
+const dbgr=debug("development:mongoose"); 
+()=>
+
+mongoose
+.connect(`${config.get(MONGODBURI)}/WatchEcomm`)
 .then(()=>{
-    console.log("connected to Mongo");
+    dbgr("connected to Mongo");
 })
 .catch((err)=>{
-    console.log(err)
+    dbgr(err)
 })
 
-mongoose.exports=mongoose.connection;
+export default mongoose.connection;
