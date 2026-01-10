@@ -1,20 +1,48 @@
 import express from "express";
-const router=express.Router();
+const router = express.Router();
 
 import OwnerModel from "../models/OwnerModel.js";
 
-router.get("/",(req,res)=>{
-    res.send("Owner router working")
-})
+router.get("/", async (req, res) => {
+  try {
+    const owners = await OwnerModel.find();
+
+    res.status(200).json({
+      success: true,
+      count: owners.length,
+      data: owners
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
 
 
-console.log("the node environment is:-"+process.env.NODE_ENV);
+router.post("/create", async (req, res) => {
+  try {
+    let {fullanme,email,password} =req.body;
+    const owner = await OwnerModel.create({
+      fullname: "Rayyan Ansari",
+      email: "rayyan@gmail.com",
+      password: "gsdfg2",
+      gstin,
+    });
 
-if(process.env.NODE_ENV==="development"){
-    router.post("/create",(req,res)=>{
-        res.send("the createOwner is working")
-    })
+    res.status(201).json({
+      success: true,
+      data: owner
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
 
-}
+console.log("Node environment:", process.env.NODE_ENV);
 
 export default router;

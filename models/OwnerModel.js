@@ -13,15 +13,17 @@ fullname :{
 
 email:    String ,
 password: String,
-products:{
-    type:Array,
-    default:[]
-},
+// products:{
+//     type:Array,
+//     default:[]
+// },
 gstin:String,
-picture:String,
+// picture:String,
     
 })  
 
 
 
-export default mongoose.model("owner",ownerSchema);
+// In models/OwnerModel.js
+const ownerModel = mongoose.model("owner", ownerSchema);
+export default ownerModel;
